@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malsha Nethmini | Data Science Portfolio</title>
+<meta name="description" content="Data science student from Sri Lanka building end-to-end machine learning projects and live apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8FC; --surface:#FFFFFF; --ink:#131C2E; --muted:#55627A; --line:#DDE3EE;
+  --a1:#4F46E5; --a2:#0F766E; --on:#FFFFFF; --chip:#EAEFFA; --glow1:rgba(79,70,229,.14); --glow2:rgba(15,118,110,.12);
+  --grad:linear-gradient(135deg,var(--a1),var(--a2));
+  --head:'Sora','Segoe UI',Arial,sans-serif; --body:'Source Sans 3','Segoe UI',Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0B1220;--surface:#121B2E;--ink:#EAF0FA;--muted:#9AA8BF;--line:#22304A;--a1:#818CF8;--a2:#5EEAD4;--on:#0B1220;--chip:#1A2740;--glow1:rgba(129,140,248,.18);--glow2:rgba(94,234,212,.12)}
+}
+:root[data-theme="dark"]{--bg:#0B1220;--surface:#121B2E;--ink:#EAF0FA;--muted:#9AA8BF;--line:#22304A;--a1:#818CF8;--a2:#5EEAD4;--on:#0B1220;--chip:#1A2740;--glow1:rgba(129,140,248,.18);--glow2:rgba(94,234,212,.12)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+a{color:var(--a1)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--a2);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--head);font-weight:700;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;align-items:center}
+nav ul a{color:var(--muted);text-decoration:none;font-weight:600;font-size:16px}
+nav ul a:hover{color:var(--ink)}
+#theme{background:var(--surface);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 14px;font:600 14px var(--body);cursor:pointer}
+
+.hero{background:radial-gradient(600px 300px at 85% 10%,var(--glow1),transparent),radial-gradient(500px 300px at 10% 90%,var(--glow2),transparent)}
+.hero .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center;padding-top:72px;padding-bottom:64px}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:15px;font-weight:600;margin-bottom:20px}
+.status i{width:9px;height:9px;border-radius:50%;background:#22C55E;display:inline-block}
+h1{font-family:var(--head);font-weight:700;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.15;margin:0 0 20px;letter-spacing:-.02em}
+.hero p{color:var(--muted);margin:0 0 28px;max-width:34em;font-size:1.1rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.btn.primary{background:var(--grad);color:var(--on);border-color:transparent}
+.btn:hover{filter:brightness(1.07)}
+.photo{justify-self:center;width:min(280px,70vw);aspect-ratio:1;border-radius:50%;padding:5px;background:var(--grad)}
+.photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:var(--surface)}
+
+.role{font-family:var(--head);font-weight:500;font-size:clamp(1.1rem,2.4vw,1.45rem);margin:0 0 18px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content}
+
+
+section{padding:60px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--head);font-size:1.7rem;margin:0 0 8px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 28px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 16px;border-radius:999px;font:600 15px var(--body);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--grad);color:var(--on);border-color:transparent}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--a1)}
+.card[hidden]{display:none}
+.band{background:var(--grad);color:var(--on);padding:22px 26px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.band b{font-family:var(--head);font-size:1.5rem}
+.band span{font-weight:600;font-size:15px}
+.body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.card h3{font-family:var(--head);font-size:1.2rem;margin:0 0 6px}
+.what{margin:0 0 14px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;padding:0;list-style:none}
+.tags li{background:var(--chip);border-radius:6px;padding:2px 10px;font-size:14px;font-weight:600}
+.more{margin:0 0 16px;padding-left:20px}
+.more[hidden]{display:none}
+.more li{margin-bottom:6px}
+.actions{margin-top:auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.toggle{background:none;border:none;color:var(--a1);font:600 16px var(--body);cursor:pointer;padding:0;margin-right:6px}
+.pill{font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:6px 14px;color:var(--ink)}
+.pill.live{background:var(--grad);color:var(--on);border-color:transparent}
+
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--grad);color:var(--on);font:700 15px var(--head);margin-bottom:12px}
+.steps strong{display:block;font-family:var(--head);margin-bottom:4px}
+.steps span{color:var(--muted);font-size:16px}
+
+.two{display:grid;gap:36px;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+.cert{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--a1);border-radius:12px;padding:16px 22px;margin-top:20px}
+.cert strong{display:block;font-family:var(--head)}
+.cert span{color:var(--muted);font-size:16px}
+.sk{margin-bottom:16px}
+.sk h3{font-family:var(--head);font-size:1rem;margin:0 0 8px}
+.skills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.skills li{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:4px 12px;font-weight:600;font-size:16px}
+
+.cta{background:var(--grad);color:var(--on);border-radius:20px;padding:44px 32px;text-align:center}
+.cta h2{margin-bottom:10px}
+.cta p{margin:0 auto 24px;max-width:30em}
+.cta .btn{background:var(--on);color:var(--ink);border:none}
+:root:not([data-theme="dark"]) .cta .btn{color:#131C2E;background:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cta .btn{color:#EAF0FA}}
+:root[data-theme="dark"] .cta .btn{color:#EAF0FA}
+.cta .btns{justify-content:center}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0 44px;color:var(--muted);font-size:15px}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr;padding-top:44px}.photo{order:-1;width:170px;justify-self:start}nav li.hide-sm{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
+
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--line) 1.4px,transparent 1.4px);background-size:26px 26px;-webkit-mask-image:radial-gradient(ellipse at 75% 35%,#000 5%,transparent 70%);mask-image:radial-gradient(ellipse at 75% 35%,#000 5%,transparent 70%);pointer-events:none}
+.hero .wrap{position:relative}
+.photo{box-shadow:0 24px 70px var(--glow1),0 0 0 10px var(--glow2)}
+h2::after{content:"";display:block;width:56px;height:4px;border-radius:4px;background:var(--grad);margin-top:10px}
+h2+.sub{margin-top:14px}
+.cta h2::after{display:none}
+.ico{width:18px;height:18px;vertical-align:-3px;margin-right:8px;fill:currentColor}
+.card:hover{box-shadow:0 14px 40px var(--glow1)}
+.card.featured{grid-column:1/-1;flex-direction:row}
+.card.featured .band{flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;min-width:250px}
+.card.featured .band b{font-size:2.2rem}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (max-width:760px){.card.featured{flex-direction:column}.card.featured .band{flex-direction:row;align-items:baseline}.card.featured .band b{font-size:1.5rem}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav aria-label="Main">
+  <a class="brand" href="#top">Malsha Nethmini</a>
+  <ul>
+    <li class="hide-sm"><a href="#projects">Projects</a></li>
+    <li class="hide-sm"><a href="#process">How I work</a></li>
+    <li class="hide-sm"><a href="#about">About</a></li>
+    <li class="hide-sm"><a href="#contact">Contact</a></li>
+    <li><button id="theme" type="button" aria-label="Switch between light and dark theme">Dark mode</button></li>
+  </ul>
+</nav></div></header>
+
+<main id="top">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="status"><i></i>Open to internships</div>
+      <h1>Malsha Nethmini</h1>
+      <p>Undergraduate at Sabaragamuwa University of Sri Lanka, studying data science. I build end-to-end machine learning projects, from data cleaning and modelling to deployed web apps, and I'm looking for an internship where I can grow as a data professional.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">View my projects</a>
+        <!-- Put your CV in the same folder, named Malsha_CV.pdf -->
+        <a class="btn" href="Malsha_CV.pdf">Download CV</a>
+        <a class="btn" href="https://www.linkedin.com/in/malsha-nethmini-vk/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/sirimanna2002"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>GitHub</a>
+      </div>
+    </div>
+    <div class="photo"><img src="https://github.com/sirimanna2002.png" alt="Portrait of Malsha Nethmini" onerror="this.style.display='none'"></div>
+  </div></div>
+
+  <section id="projects"><div class="wrap">
+    <h2>Projects</h2>
+    <p class="sub">Pick a topic to filter. Open "More details" to see how each one was built.</p>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="ml" aria-pressed="false">Machine learning</button>
+      <button type="button" data-f="deploy" aria-pressed="false">Live apps</button>
+    </div>
+    <div class="grid">
+      <article class="card featured" data-cat="ml deploy">
+        <div class="band"><b>R² 0.81</b><span>Price prediction</span></div>
+        <div class="body">
+          <h3>Sri Lankan Property Price Predictor</h3>
+          <p class="what">Enter a property's type, location and size and get an estimated price in rupees.</p>
+          <ul class="tags"><li>Python</li><li>Random Forest</li><li>FastAPI</li><li>Streamlit</li></ul>
+          <ul class="more" hidden>
+            <li>Cleaned a public property ads dataset down to 151,687 sale listings (land, houses, apartments).</li>
+            <li>Random Forest scored R² 0.81 overall: houses 0.80, apartments 0.73, land 0.52.</li>
+            <li>API runs on Railway, web app on Streamlit Community Cloud.</li>
+          </ul>
+          <div class="actions">
+            <button class="toggle" type="button" aria-expanded="false">More details</button>
+            <!-- Replace # with your Streamlit app link -->
+            <a class="pill live" href="https://sl-property-price-predictor.streamlit.app/">Live app</a>
+            <a class="pill" href="https://github.com/sirimanna2002/sl-property-price-predictor">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="ml deploy">
+        <div class="band"><b>Fair AI</b><span>Bias audit</span></div>
+        <div class="body">
+          <h3>FairVision: Fairness in Age Prediction</h3>
+          <p class="what">A face-image classifier that predicts age group, checked for bias across race and age, then improved.</p>
+          <ul class="tags"><li>PyTorch</li><li>CNN</li><li>FairFace</li><li>Streamlit</li></ul>
+          <ul class="more" hidden>
+            <li>Trained a baseline CNN and measured how accuracy differs between groups.</li>
+            <li>Tested two fixes: class-weighted loss and race by age oversampling.</li>
+            <li>Built a Streamlit demo using the oversampling model.</li>
+          </ul>
+          <div class="actions">
+            <button class="toggle" type="button" aria-expanded="false">More details</button>
+            <a class="pill live" href="https://fairvision-demo-equyuahjjcnmz8ov6duzfm.streamlit.app/">Live app</a>
+            <a class="pill" href="https://github.com/sirimanna2002/fairvision-app">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="ml">
+        <div class="band"><b>Health</b><span>Classification</span></div>
+        <div class="body">
+          <h3>Heart Disease Prediction</h3>
+          <p class="what">A model that predicts heart disease risk from patient health data.</p>
+          <ul class="tags"><li>Python</li><li>scikit-learn</li><li>Classification</li></ul>
+          <ul class="more" hidden>
+            <li>Explored the data, trained several models and compared them with standard metrics.</li>
+            <li>Full code and notebook are on GitHub.</li>
+          </ul>
+          <div class="actions">
+            <button class="toggle" type="button" aria-expanded="false">More details</button>
+            <a class="pill" href="https://github.com/sirimanna2002/heart-disease-prediction">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div></section>
+
+  <section id="process"><div class="wrap">
+    <h2>How I build a project</h2>
+    <p class="sub">The same four steps every time.</p>
+    <ol class="steps">
+      <li><strong>Clean the data</strong><span>Remove duplicates, outliers and errors so the model learns from good data.</span></li>
+      <li><strong>Train and test</strong><span>Compare models, check the results honestly, including where they are weak.</span></li>
+      <li><strong>Build the app</strong><span>Wrap the model in an API and a simple web page.</span></li>
+      <li><strong>Put it online</strong><span>Deploy it and document it on GitHub so anyone can try it.</span></li>
+    </ol>
+  </div></section>
+
+  <section id="about"><div class="wrap two">
+    <div>
+      <h2>About me</h2>
+      <p>I'm an undergraduate at Sabaragamuwa University of Sri Lanka, studying data science. I enjoy the full path of a project: finding data, cleaning it, training a model, then making it work as an app other people can open.</p>
+      <p>I'm still learning, and I build in public on GitHub so my progress is easy to see.</p>
+      <div class="cert"><strong>BSc Honours in Data Science</strong><span>Sabaragamuwa University of Sri Lanka, undergraduate</span></div>
+      <div class="cert"><strong>Certified AI and ML Engineer</strong><span>IJSE, November 2025 to April 2026</span></div>
+    </div>
+    <div>
+      <h2>Skills</h2>
+      <p class="sub">Tools I have used in my projects.</p>
+      <div class="sk"><h3>Machine learning</h3><ul class="skills"><li>Python</li><li>Pandas</li><li>scikit-learn</li><li>PyTorch</li></ul></div>
+      <div class="sk"><h3>Data</h3><ul class="skills"><li>SQL</li><li>Power BI</li></ul></div>
+      <div class="sk"><h3>Apps and tools</h3><ul class="skills"><li>FastAPI</li><li>Streamlit</li><li>Git and GitHub</li></ul></div>
+    </div>
+  </div></section>
+
+  <section id="contact"><div class="wrap">
+    <div class="cta">
+      <h2>Let's work together</h2>
+      <p>I'm looking for a data science or machine learning internship. Send me a message and I'll reply soon.</p>
+      <div class="btns">
+        <!-- Replace with your real email -->
+        <a class="btn" href="mailto:nsirimanna25@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/malsha-nethmini-vk/">LinkedIn</a>
+        <a class="btn" href="https://github.com/sirimanna2002">GitHub</a>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer><div class="wrap">Malsha Nethmini. Built with plain HTML and hosted on GitHub Pages.</div></footer>
+
+<script>
+var root=document.documentElement,tbtn=document.getElementById('theme');
+function isDark(){var t=root.getAttribute('data-theme');if(t)return t==='dark';return window.matchMedia('(prefers-color-scheme: dark)').matches}
+function label(){tbtn.textContent=isDark()?'Light mode':'Dark mode'}
+tbtn.addEventListener('click',function(){root.setAttribute('data-theme',isDark()?'light':'dark');label()});
+label();
+var chips=document.querySelectorAll('.filters button'),cards=document.querySelectorAll('.card');
+chips.forEach(function(b){b.addEventListener('click',function(){
+  chips.forEach(function(x){x.setAttribute('aria-pressed','false')});
+  b.setAttribute('aria-pressed','true');
+  var f=b.getAttribute('data-f');
+  cards.forEach(function(c){c.hidden=!(f==='all'||c.getAttribute('data-cat').split(' ').indexOf(f)>-1)});
+})});
+document.querySelectorAll('.toggle').forEach(function(t){t.addEventListener('click',function(){
+  var l=t.closest('.card').querySelector('.more'),o=l.hidden;
+  l.hidden=!o;t.setAttribute('aria-expanded',o);t.textContent=o?'Hide details':'More details';
+})});
+
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.card,.steps li,.cert,.sk,.cta').forEach(function(el){el.classList.add('reveal');io.observe(el)});
+}
+</script>
+</body>
+</html>
